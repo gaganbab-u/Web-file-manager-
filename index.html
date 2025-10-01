@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web File Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="file-manager-container">
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <ul id="nav-list">
+                <li class="nav-item active" data-path="local"><i class="icon">📁</i> Local Files</li>
+            </ul>
+
+            <button id="add-telegram-btn" class="sidebar-btn">
+                + Telegram Cloud Jodein
+            </button>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <span id="current-path">/Files List</span>
+            </header>
+            
+            <div class="toolbar">
+                <form id="upload-form" enctype="multipart/form-data" style="display: inline-block;">
+                    <input type="file" name="file" id="file-upload" style="display: none;">
+                    <button type="button" onclick="document.getElementById('file-upload').click()"><i class="icon">📤</i> File Upload Karein</button>
+                </form>
+                
+                <button onclick="createNewFolder()"><i class="icon">➕</i> Folder Banayein</button>
+            </div>
+
+            <ul id="file-list" class="file-list-view">
+            </ul>
+        </main>
+    </div>
+
+    <div id="telegram-modal" class="modal">
+        <div class="modal-content">
+            <h3>Telegram Channel Cloud Jodein</h3>
+            <p>Bot Token aur Private Channel ID daalein.</p>
+            <input type="text" id="bot-token" placeholder="Telegram Bot Token" required>
+            <input type="text" id="channel-id" placeholder="Private Channel ID (-100... se shuru hota hai)" required>
+            <button onclick="connectTelegram()">Jodein aur Test Karein</button>
+            <button onclick="closeModal()">Band Karein</button>
+            <p id="telegram-status" style="margin-top: 10px; color: red;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
